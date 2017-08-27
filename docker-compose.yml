@@ -1,7 +1,7 @@
 version: '3'
 services:
   nginx:
-    build: ./nginx
+    image: contenta/nginx:0.1
     ports:
       - "80:80"
       - "443:443"
@@ -14,7 +14,7 @@ services:
     depends_on:
       - php
   php:
-    build: ./php
+    image: contenta/contenta:0.1
     ports:
       - "9000:9000"
     volumes:
@@ -24,7 +24,7 @@ services:
     networks:
       - contenta
   database:
-    build: ./database
+    image: contenta/mariadb:0.1
     ports:
       - "3306:3306"
     volumes:
